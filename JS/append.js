@@ -15,7 +15,7 @@ $(function(){
     var newBox = grab2.clone().appendTo(grab);
     newBox.removeClass('main');
     newBox.find('.title').html(this.title);
-    newBox.find('.author').html('<a href="https://en.wikipedia.org/wiki/Walt_Whitman">' + this.author + '</a>');
+    newBox.find('.author').html('<a href="' + this.authorUrl + '">' + this.author + '</a>');
     newBox.find('.pubDate').html('About ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
     newBox.find('.body').html(this.body);
   };
