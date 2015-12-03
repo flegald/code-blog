@@ -10,25 +10,39 @@
 </head>
 
 <body>
-  <section id="topest">
-    <header id="top">David's Blog</header>
-    <section id="navBar">
-      <ul id="navL">
+
+    <header id="top">
+      <h1>David's Code Blog</h1>
+
+      <section class="togMen" id="togMen">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <section class='menu'>
+      <ul>
         <li><a class="navLink" href="https://github.com/flegald">Articles</a></li>
         <li><a class="navLink" href="about.html" target="_blank">About</a></li>
         <li><a class="navLink" href="https://github.com/flegald">Twitter</a></li>
         <li><a class="navLink" href="https://github.com/flegald">GitHub</a></li>
       </ul>
     </section>
-  </section>
+</header>
+<div class="breaker"></div>
+
 </br>
   <form>
+    <p>Filter by Author</p>
     <select id="auth">
       <option>All</option>
     </select>
   </form>
 
   <form>
+    <p>Filter by Catergory</p>
     <select id="cate">
       <option>All</option>
     </select>
@@ -47,11 +61,14 @@
       <section class="body"></section>
       </br>
       <button class="readMore">SHOW MORE/LESS<img class="arrow" src="img/arrow.svg"></button>
+      <div class="artBreak"></div>
   </section>
   </article>
 
   <script type="text/javascript" src="js/blog.js"></script>
   <script type="text/javascript" src="js/append.js"></script>
   <script type="text/javascript" src="js/button.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+
 </body>
 </html>

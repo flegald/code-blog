@@ -2,6 +2,10 @@ var newArt = [];
 
 $(function(){
 
+$('.authFill').hide();
+$('.cateFill').hide()
+$('.readMore').hide();
+$('.artbreak').hide();
 // OBJECT CONSTRUCTOR****************
   function Articles(obj) {
     this.title = obj.title;
@@ -24,6 +28,8 @@ $(function(){
     newBox.find('.pubDate').html('About ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
     newBox.find('.body').html(this.body);
     $('.main').find('p:not(:first)').hide();
+    $('.main').find('.readMore').show();
+    $('.main').find('.artbreak').show();
   };
 
   var createAll = function(){
@@ -71,6 +77,9 @@ $(function(){
     if (getCat == 'All'){
       $('.main').remove();
       createAll();
+      $('.readMore').click(function(){
+        $(this).parent().find('p:not(:first)').slideToggle();
+      })
     } else {
       $('.main').hide();
       $(".cateFill:contains('" + getCat + "')").parent().show();
@@ -83,6 +92,9 @@ $(function(){
     if ( getAuth == 'All'){
       $('.main').remove();
       createAll();
+      $('.readMore').click(function(){
+        $(this).parent().find('p:not(:first)').slideToggle();
+      })
     } else {
       $('.main').hide();
       $(".authFill:contains('" + getAuth + "')").parent().show();
