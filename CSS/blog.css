@@ -1,87 +1,100 @@
 body {
-  margin: 20px;
-  background-image: url("../img/back.jpg");
-}
-
-a.navLink {
-  color: white;
-  text-decoration: none;
-}
-
-a.navLink:hover {
-  color: white;
-}
-
-li {
-  display: inline-block;
-  margin: 10px;
-  border: 2px solid black;
-  border-radius: 10%;
-  padding: 3px;
-  background-color: #48486b;
-  color: white;
-}
-
-li:hover {
-  background-color: #666699;
-}
-
-#navBar {
-  text-align: center;
+  margin: 1em;
 }
 
 #top {
+  background-color: #ce0909;
+  padding: 1.3em;
+
+}
+
+h1 {
+  display: inline-block;
+  width: 10em;
   text-align: center;
-  font-size: 24px;
-  color: white;
+  margin-left: 6em;
 }
 
-#topest {
-  background-color: #990033;
-  width: 95%;
-  opacity: 0.9;
-  border-radius: 3%;
+.togMen {
+  border: .2em solid black;
+  border-radius: 10%;
+  width: 2em;
+  padding: .3em;
+  text-align: center;
+  cursor: pointer;
+  padding-right: .4em;
+  background-color: white;
+}
+
+span {
+  display: block;
+  width: 90%;
+  height: .3em;
+  background-color: black;
+  margin: .3em;
+}
+
+ul {
   border: 2px solid black;
-  height: 80px;
+  border-radius: 3%;
+  width: 100px;
   padding: 5px;
+  background-color: white;
 }
 
-.articleBox {
-  background-color: #ffffcc;
-  border: 2px solid #990033;
-  padding: 9px;
+.navLink {
+  text-decoration: none;
 }
 
-.title {
-   font-size: 20px;
-   font-weight: bold;
- }
+.breaker {
+  height: .3em;
+  width: 100%;
+  background-color: black;
+  display: block;
+  margin: .5em;
+}
+
+.arrow {
+  width: 20px;
+  padding: 2px;
+  margin-bottom: -5px;
+  float: right;
+}
+
+.articleBox{
+  background-color: #ce0909;
+  color: white;
+  padding: 1em;
+  border: .3em solid black;
+}
 
 img {
-  float: left;
-  margin: 9px;
   max-width: 300px;
 }
 
-.artTite {
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.artbreak {
+  height: .3em;
+  width: 100%;
+  background-color: black;
+  display: block;
+  margin: .5em;
+}
+
+.readMore {
   background-color: white;
-  border: 2px solid black;
-  border-bottom: none;
-  padding: 9px;
+  color: black;
 }
 
-.arrow {
-  width: 20px;
+.author>a {
+  color: white;
+  font-weight: bold;
 }
 
-.cateFill, .authFill {
-  visibility: hidden;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-.arrow {
-  width: 20px;
+.author>a:hover {
+  color: black;
 }
