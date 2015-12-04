@@ -1,18 +1,44 @@
 <DOCTYPE! html>
+<html lang="en">
 
+<meta charset="utf-8">
 <head>
   <title>David's Blog</title>
+  <script type="text/javascript" src="js/blog.js"></script>
+  <script type="text/javascript" src="js/blog.js"></script>
+
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="CSS/normalize.css"/>
   <link rel="stylesheet" type="text.css" href="CSS/skeleton.css"/>
-  <link rel="stylesheet" type="text/css" href="CSS/blog.css"/>
+  <link rel="stylesheet" type="text/css" href="CSS/base.css"/>
+  <link rel="stylesheet" type="text/css" href="CSS/module.css"/>
+  <link rel="stylesheet" type="text/css" href="CSS/layout.css"/>
+  <link rel="stylesheet" type="text/css" href="CSS/state.css"/>
+
+<script id="template" type="text/x-handlebars-template">
+<section class="artFull">
+  <p class="cateFill">{{category}}</p>
+  {{title}}
+  </br>
+  <p class="authFill"><a href="{{authorUrl}}">{{author}}</a></p>
+  <p>About {{getDay}} days ago</p>
+  </br>
+  <section class="bod">{{{body}}}</section>
+  </br>
+  <button class="readMore">SHOW MORE/LESS<img class="arrow" src="img/arrow.svg"></button>
+  </br>
+  <div class="artBreak"></div>
+</section>
+</script>
+
 </head>
 
 <body>
 
     <header id="top">
-      <h1>David's Code Blog</h1>
+      <h1>Davids Code Blog</h1>
 
       <section class="togMen" id="togMen">
       <div>
@@ -34,37 +60,33 @@
 <div class="breaker"></div>
 
 </br>
-  <form>
-    <p>Filter by Author</p>
-    <select id="auth">
-      <option>All</option>
+
+<selection id="form">
+
+  <formid="formA">
+
+    <select id="auth" name="Filter By Author">
+      <option>FILTER BY AUTHOR</option>
+      <option value="All">All</option>
     </select>
   </form>
 
-  <form>
-    <p>Filter by Catergory</p>
+  <form id="formC">
+
     <select id="cate">
-      <option>All</option>
+      <option> FILTER BY CATEGORY</option>
+      <option value="All">All</option>
     </select>
   </form>
+
+</selection>
+
+
 
   <article class="articleBox">
     <section class="hidden">
-      <section class="authFill"></section>
-      <section class="cateFill"></section>
-      <header class="artTite">
-        <header class="title"></header>
-        <section class="author"></section>
-        <section class="pubDate"></section>
-      </header>
-      </br>
-      <section class="body"></section>
-      </br>
-      <button class="readMore">SHOW MORE/LESS<img class="arrow" src="img/arrow.svg"></button>
-      <div class="artBreak"></div>
-  </section>
+    </section>
   </article>
-
   <script type="text/javascript" src="js/blog.js"></script>
   <script type="text/javascript" src="js/append.js"></script>
   <script type="text/javascript" src="js/button.js"></script>
