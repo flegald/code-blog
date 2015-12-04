@@ -5,18 +5,20 @@ body {
 #top {
   background-color: #ce0909;
   padding: 1.3em;
-
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
   display: inline-block;
-  width: 10em;
   text-align: center;
-  margin-left: 6em;
+  margin-left: 1em;
+  font-weight: bold;
 }
 
 .togMen {
-  border: .2em solid black;
   border-radius: 10%;
   width: 2em;
   padding: .3em;
@@ -51,7 +53,9 @@ ul {
   width: 100%;
   background-color: black;
   display: block;
-  margin: .5em;
+  margin-left: auto;
+  margin-right;
+  margin-top: 1em;
 }
 
 .arrow {
@@ -85,7 +89,7 @@ img {
   margin: .5em;
 }
 
-.readMore {
+.readMore, .readLess {
   background-color: white;
   color: black;
 }
@@ -98,3 +102,8 @@ img {
 .author>a:hover {
   color: black;
 }
+
+@media (max-width: 600px) {
+  #top {
+    width:20em;
+  }

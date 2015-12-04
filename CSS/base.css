@@ -1,0 +1,30 @@
+body {
+  margin: 1em;
+}
+
+h1 {
+  display: inline-block;
+  text-align: center;
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+span {
+  display: block;
+  width: 90%;
+  height: .3em;
+  background-color: black;
+  margin: .3em;
+}
+
+ul {
+  border: 2px solid black;
+  border-radius: 3%;
+  width: 100px;
+  padding: 5px;
+  background-color: white;
+}
+
+img {
+  max-width: 300px;
+}
