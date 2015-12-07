@@ -32,11 +32,11 @@ function render() {
   var mDateVal = marked(dateVal);
   var mBodyVal = marked(bodyVal);
 
-  article.title = mTitleVal;
-  article.category = mCatVal;
-  article.author = mAuthVal;
-  article.authorUrl = mAuthUrlVal;
-  article.publishedOn = mDateVal;
+  article.title = titleVal;
+  article.category = catVal;
+  article.author = authVal;
+  article.authorUrl = authUrlVal;
+  article.publishedOn = dateVal;
   article.body = mBodyVal;
 
   var jsonStr = JSON.stringify(article);
