@@ -1,12 +1,18 @@
 <DOCTYPE html>
   <head>
     <meta lang='en'>
+
+    <script type="text/javascript" src="js/blog.js"></script>
+    <script type="text/javascript" src="js/blog.js"></script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="CSS/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="CSS/base.css">
     <link rel="stylesheet" type="text/css" href="CSS/layout.css">
     <link rel="stylesheet" type="text/css" href="CSS/module.css">
     <link rel="stylesheet" type="text/css" href="CSS/normalize.css">
     <link rel="stylesheet" type="text/css" href="CSS/skeleton.css">
-
 
     <title>New Entry</title>
   </head>
@@ -17,7 +23,7 @@
 
     <div>
       <h3>Title: </h3>
-      <input type="text" id="title" />
+      <input type="text" id="title"/>
     </div>
 
     <div>
@@ -36,11 +42,6 @@
     </div>
 
     <div>
-      <h3>Date: </h3>
-      <input type="date" id="date" />
-    </div>
-
-    <div>
       <h3>Body: </h3>
       <textarea id="body">
       </textarea>
@@ -48,18 +49,8 @@
 
     <div>
       <h4>Preview</h4>
-      <div id="prevTitle">
-      </div>
-      <div id="prevCat">
-      </div>
-      <div id="prevAuth">
-      </div>
-      <div id="prevAuthUrl">
-      </div>
-      <div id="prevDate">
-      </div>
-      <div id="prevBody">
-      </div>
+    </div>
+    <div id="prevAll">
     </div>
 
     <div>
@@ -67,6 +58,7 @@
       <div id="prevJson">
       </div>
     </div>
+    <button id="submit">Submit</button>
 
     <script src="JS/jquery-2.1.4.min.js"></script>
     <script src="JS/marked.min.js"></script>
