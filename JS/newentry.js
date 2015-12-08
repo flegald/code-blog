@@ -1,55 +1,87 @@
-$(function() {
-
-var $title = $('#title');
-var $cat = $('#category');
-var $auth = $('#author');
-var $authUrl = $('#authUrl');
-var $date = $('#date');
-var $body = $('#body');
-
 var article = {};
 
-function render() {
+$(function() {
 
-  var titleVal = $title.val();
-  var catVal = $cat.val();
-  var authVal = $auth.val();
-  var authUrlVal = $authUrl.val();
-  var dateVal = $date.val();
-  var bodyVal = $body.val();
+  var $title = $('#title');
+  var $cat = $('#category');
+  var $auth = $('#author');
+  var $authUrl = $('#authUrl');
+  var $date = $('#date');
+  var $body = $('#body');
 
-  $('#prevTitle').text(titleVal);
-  $('#prevCat').text(catVal);
-  $('#prevAuth').text(authVal);
-  $('#prevAuthUrl').text(authUrlVal);
-  $('#prevDate').text(dateVal);
-  $('#prevBody').text(bodyVal);
 
-  var mTitleVal = marked(titleVal);
-  var mCatVal = marked(catVal);
-  var mAuthVal = marked(authVal);
-  var mAuthUrlVal = marked(authUrlVal);
-  var mDateVal = marked(dateVal);
-  var mBodyVal = marked(bodyVal);
+  if (localStorage.getItem("savedTitle") !== null){
+    $('#title').val(localStorage.getItem('savedTitle'));
+  }
 
-  article.title = titleVal;
-  article.category = catVal;
-  article.author = authVal;
-  article.authorUrl = authUrlVal;
-  article.publishedOn = dateVal;
-  article.body = mBodyVal;
+  if (localStorage.getItem("savedCat") !== null){
+    $('#category').val(localStorage.getItem('savedCat'));
+  }
 
-  var jsonStr = JSON.stringify(article);
-  $('#prevJson').text(jsonStr);
-};
+  if (localStorage.getItem("savedAuth") !== null){
+    $('#author').val(localStorage.getItem('savedAuth'));
+  }
 
-$title.on('input', render);
-$cat.on('input', render);
-$auth.on('input', render);
-$authUrl.on('input', render);
-$date.on('input', render);
-$body.on('input', render);
+  if (localStorage.getItem("savedAuthUrl") !== null){
+    $('#authUrl').val(localStorage.getItem('savedAuthUrl'));
+  }
 
-render();
+  if (localStorage.getItem("savedBody") !== null){
+    $('#body').val(localStorage.getItem('savedBody'));
+  }
+
+  function render() {
+
+    var titleVal = $title.val();
+    var catVal = $cat.val();
+    var authVal = $auth.val();
+    var authUrlVal = $authUrl.val();
+    var dateVal = $date.val();
+    var bodyVal = $body.val();
+
+
+    var mBodyVal = marked(bodyVal);
+
+
+    article.title = titleVal;
+    article.category = catVal;
+    article.author = authVal;
+    article.authorUrl = authUrlVal;
+    article.body = mBodyVal;
+    article.getDay = "0";
+
+
+    var jsonStr = JSON.stringify(article);
+    var prevJsonDiv = $('#prevJson');
+    prevJsonDiv.text(jsonStr);
+
+
+
+
+    $.get('template.handlebars', function(data){
+      var compTemp = Handlebars.compile(data);
+      var handPush = compTemp(article);
+      $('#prevAll').html(handPush);
+      $('.cateFill').hide();
+    })
+    localStorage.setItem("savedTitle", titleVal);
+    localStorage.setItem("savedCat", catVal);
+    localStorage.setItem("savedAuth", authVal);
+    localStorage.setItem("savedAuthUrl", authUrlVal);
+    localStorage.setItem("savedBody", bodyVal);
+  };
+
+  $title.on('input', render);
+  $cat.on('input', render);
+  $auth.on('input', render);
+  $authUrl.on('input', render);
+  $date.on('input', render);
+  $body.on('input', render);
+
+
+  $('#submit').click(function(){
+    localStorage.clear();
+  });
+
 
 });

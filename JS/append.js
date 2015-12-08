@@ -1,10 +1,38 @@
 
 var newArt = [];
 var catForm = [];
-
+var bigArray = [];
 
 $(function(){
+  $.ajax({
+     type: "HEAD",
+     async: true,
+     url: "blogArticles.json",
+     complete: function(XMLHttpRequest, textStatus){
+       var eTag = XMLHttpRequest.getResponseHeader('ETag');
+       console.log(eTag);
+       localStorage.setItem('ergodicEtag', eTag)
+     }
+   });
+       $.getJSON('blogArticles.json', function(data){
+         localStorage.setItem('blogData', JSON.stringify(data));
+         var rawBlogData = localStorage.getItem('blogData');
+         var blogData = JSON.parse(rawBlogData);
+         for (i = 0; i < blogData.length; i ++){
+           bigArray[i] = new Articles(blogData[i]);
+          }
+          $.get('template.handlebars', function(data){
+            for (i = 0; i < bigArray.length; i++) {
+              var compTemp = Handlebars.compile(data);
+              var handPush = compTemp(bigArray[i]);
+              $('.articleBox').append(handPush);
+            }
+          })
+        });
 
+$('#Enter').click(function(){
+  window.location = "newentry.html";
+});
 // OBJECT CONSTRUCTOR*************
 function Articles(obj) {
    this.title = obj.title;
@@ -17,31 +45,36 @@ function Articles(obj) {
 
  };
 
- var pushArray = function(){
-    for (i = 0; i < blog.rawData.length; i ++){
-      newArt[i] = new Articles(blog.rawData[i]);
-    };
-    newArt.sort(function(a, b){
-      a = new Date (a.publishedOn);
-      b = new Date (b.publishedOn);
-      return b - a;
-    });
-  }
+ // var pushArray = function(){
+ //    for (i = 0; i < blog.rawData.length; i ++){
+ //      newArt[i] = new Articles(blog.rawData[i]);
+ //    };
+ //    newArt.sort(function(a, b){
+ //      a = new Date (a.publishedOn);
+ //      b = new Date (b.publishedOn);
+ //      return b - a;
+ //    });
+ //    var stringArray = JSON.stringify(newArt)
+ //    localStorage.setItem('articles', stringArray)
+ //  }
 
 // IMPORT WITH HANDLEBAR***********
-  var createAll = function(){
-    for (i = 0; i < newArt.length; i++){
-      var temp = $("#template").html();
-      var compTemp = Handlebars.compile(temp);
-      var handPush = compTemp(newArt[i]);
-      $('.hidden').append(handPush);
-      $('.cateFill').hide();
-      $('.bod').find('p:not(:first-child)').hide();
-    };
-};
-
-
-
+  // var createAll = function(){
+  //     $.get('template.handlebars', function(data){
+  //       for (i = 0; i < bigArray.length; i++) {
+  //         var compTemp = Handlebars.compile(data);
+  //         var handPush = compTemp(bigArray[i]);
+  //         $('.articleBox').append(compTemp(handPush));
+  //         }
+  //         $('.cateFill').hide();
+  //         $('.bod').find('p:not(:first-child)').hide();
+  //         $('.readMore').click(function(){
+  //           var scrollTo = $(this).parent().position().top;
+  //           $(this).parent().find('.bod p:not(:first)').slideToggle();
+  //           $("html, body").animate({scrollTop: scrollTo}, 300);
+  //         })
+  //       })
+  //     };
 // POPULATING FORM******************
 
   var authForm = [];
@@ -58,9 +91,9 @@ function Articles(obj) {
   var popForm = function(){
 
     var tempA = [];
-    for (i = 0; i < newArt.length; i ++){
-      authForm.push(newArt[i].author);
-      tempA[i] = newArt[i].category;
+    for (i = 0; i < bigArray.length; i ++){
+      authForm.push(bigArray[i].author);
+      tempA[i] = bigArray[i].category;
     }
     authForm.sort();
     for (i = 0; i < authForm.length; i++){
@@ -70,7 +103,7 @@ function Articles(obj) {
     catForm.sort();
     for (i = 0; i < catForm.length; i++) {;
     popCform(catForm[i]);
-  }
+    };
   };
 
 // FILTERING BY CATEGORY****************
@@ -98,11 +131,8 @@ function Articles(obj) {
   });
 
 
-
-
-
 // CALLING ALL FUNCTIONS*******************
-pushArray();
-createAll();
-popForm();
+
+
+
 });

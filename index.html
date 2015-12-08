@@ -5,7 +5,6 @@
 <head>
   <title>David's Blog</title>
   <script type="text/javascript" src="js/blog.js"></script>
-  <script type="text/javascript" src="js/blog.js"></script>
 
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -17,29 +16,13 @@
   <link rel="stylesheet" type="text/css" href="CSS/layout.css"/>
   <link rel="stylesheet" type="text/css" href="CSS/state.css"/>
 
-<script id="template" type="text/x-handlebars-template">
-<section class="artFull">
-  <p class="cateFill">{{category}}</p>
-  {{title}}
-  </br>
-  <p class="authFill"><a href="{{authorUrl}}">{{author}}</a></p>
-  <p>About {{getDay}} days ago</p>
-  </br>
-  <section class="bod">{{{body}}}</section>
-  </br>
-  <button class="readMore">SHOW MORE/LESS<img class="arrow" src="img/arrow.svg"></button>
-  </br>
-  <div class="artBreak"></div>
-</section>
-</script>
-
 </head>
 
 <body>
 
     <header id="top">
       <h1>Davids Code Blog</h1>
-
+<button id="Enter">enter</button>
       <section class="togMen" id="togMen">
       <div>
         <span></span>
@@ -83,13 +66,11 @@
 
 
 
-  <article class="articleBox">
-    <section class="hidden">
-    </section>
-  </article>
-  <script type="text/javascript" src="js/blog.js"></script>
+  <section class="articleBox">
+
+
+  </section>
   <script type="text/javascript" src="js/append.js"></script>
-  <script type="text/javascript" src="js/button.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
 
 </body>
