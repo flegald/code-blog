@@ -1,8 +1,13 @@
+h1 {
+  text-align: center;
+}
+
 #top {
-  background-color: #ce0909;
+
   padding: 1.3em;
   width: 90%;
-  text-align: center;
+  text-align: left;
+  margin-top: 6em; 
   margin-left: auto;
   margin-right: auto;
 }
@@ -16,7 +21,7 @@
   margin-top: 1em;
 }
 
-.articleBox{
+.articleBox, .stat{
   background-color: #ce0909;
   color: white;
   padding: 1em;

@@ -1,7 +1,7 @@
 $(function(){
-  $('.menu').hide();
+  $('.phoneMenu').hide();
 
   $('.togMen').click(function(){
-    $('.menu').slideToggle();
+    $('.phoneMenu').slideToggle();
   });
 });
