@@ -26,7 +26,7 @@ createArray();
       // get_json();
       } else {
         console.log('miss');
-
+        get_json();
       }
      }
    });
