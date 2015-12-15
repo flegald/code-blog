@@ -3,13 +3,10 @@ var arrayLength = [];
 var realWordsArray = [];
 json_array = [];
 
-  function initArray(){
-    var json_array = [];
-    JSON.parse(localStorage.getItem('blogData')).forEach(function(article){
-      json_array.push(article);
-   });
-   return json_array;
-   };
+
+function initArray(){
+
+}
 
   function numOfArticles(data){
     return data.length  };
@@ -82,7 +79,8 @@ function searchFilter(value, property){
 
 
 
-$('#numOfArticles').text(numOfArticles(initArray()));
+
+$('#numOfArticles').text(numOfArticles(bigArray));
 console.log('number of articles ' + numOfArticles(initArray()));
 
 $('#numOfAuths').text(numOfAuths(initArray()).length);
