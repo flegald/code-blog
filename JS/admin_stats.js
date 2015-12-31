@@ -5,8 +5,10 @@ json_array = [];
 
 
 function initArray(){
+  json_array = bigArray;
+  return json_array
+};
 
-}
 
   function numOfArticles(data){
     return data.length  };
@@ -79,8 +81,9 @@ function searchFilter(value, property){
 
 
 
+setTimeout(function(){
 
-$('#numOfArticles').text(numOfArticles(bigArray));
+$('#numOfArticles').text(numOfArticles(initArray()));
 console.log('number of articles ' + numOfArticles(initArray()));
 
 $('#numOfAuths').text(numOfAuths(initArray()).length);
@@ -91,6 +94,7 @@ console.log(arrayOfWords(initArray()).length);
 
 $('#avgWordL').text(avgWordFunc(wordNum(arrayOfWords(initArray())), arrayOfWords(initArray()).length))
 console.log(avgWordFunc(wordNum(arrayOfWords(initArray())), arrayOfWords(initArray()).length))
-avgAuth();
+avgAuth()
+}, 2000);
 
   });

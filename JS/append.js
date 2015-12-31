@@ -3,30 +3,49 @@ var newArt = [];
 var catForm = [];
 var bigArray = [];
 var authForm = [];
-
 var eTag;
 
+page.base('/');
 
 
 $(function(){
 
-webDB.init();
-webDB.setupTables();
-createArray();
+  page('/', index);
+  page('about', about);
+  page('stats', stats);
+  page('newentry', editPage);
+  page();
+
+
+function index(){
+  $('#adminStats').hide();
+  $('#aboutMe').hide();
+  $('#newEntry').hide();
+  
+  webDB.init();
+  webDB.setupTables();
+
+
+  var etagLookup = localStorage.getItem('eTizzle');
 
 
   $.ajax({
      type: "HEAD",
      async: true,
      url: "blogArticles.json",
-     done: function(data, textStatus, xhr){
-       eTag = xhr.getResponseHeader('ETag');
-       if (localStorage.getItem('Etag')){
+     success: function(data, textStatus, xhr){
+       eTag = xhr.getResponseHeader('ETag')
+       if (etagLookup == eTag){
          console.log('hit');
-      // get_json();
+         get_json();
+         createArray();
+
       } else {
         console.log('miss');
+        localStorage.setItem('eTizzle', eTag);
         get_json();
+        createArray();
+
       }
      }
    });
@@ -76,14 +95,8 @@ createArray();
     })
   };
 
-$('#stats').click(function(e){
-  e.preventDefault();
-  window.location = "admin_stats.html";
-});
-$('#edit').click(function(e){
-  e.preventDefault();
-  window.location = 'newentry.html';
-})
+};
+
 // OBJECT CONSTRUCTOR*************
 function Articles(obj) {
    this.title = obj.title;
@@ -94,8 +107,8 @@ function Articles(obj) {
    this.body = obj.body;
    this.getDay = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
    this.markdown = obj.markdown;
- };
 
+};
 
      var popAform = function(a){
        $('#auth').append('<option value=' + a + '>' + a + '</option>');
@@ -128,6 +141,56 @@ function Articles(obj) {
       $(".authFill:contains('" + getAuth + "')").parent().show();
     }
   });
+
+  // BUTTONS**************
+  $('#homeButt').click(function(e){
+    e.preventDefault();
+    page('/');
+  });
+
+  $('#aboutButt').click(function(e){
+    e.preventDefault();
+    page('about');
+  });
+
+  $('#stats').click(function(e){
+    e.preventDefault();
+    page('stats');
+  })
+
+  $('#git').click(function(){
+    window.location = "https://github.com/flegald"
+  });
+
+  $('#edit').click(function(e){
+    e.preventDefault();
+    page('newentry');
+  });
+
+
+function about(){
+  $('#mainPage').hide();
+  $('#aboutMe').show();
+  $('#adminStats').hide();
+  $('#newEntry').hide();
+};
+
+function stats(){
+  $('#adminStats').show();
+  $('#mainPage').hide();
+  $('#newEntry').hide();
+  $('#aboutMe').hide();
+}
+
+function editPage(){
+  $('#adminStats').hide();
+  $('#mainPage').hide();
+  $('#newEntry').show();
+  $('#aboutMe').hide();
+}
+
+
+
 
 
 });
