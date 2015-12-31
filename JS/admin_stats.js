@@ -3,13 +3,12 @@ var arrayLength = [];
 var realWordsArray = [];
 json_array = [];
 
-  function initArray(){
-    var json_array = [];
-    JSON.parse(localStorage.getItem('blogData')).forEach(function(article){
-      json_array.push(article);
-   });
-   return json_array;
-   };
+
+function initArray(){
+  json_array = bigArray;
+  return json_array
+};
+
 
   function numOfArticles(data){
     return data.length  };
@@ -82,6 +81,8 @@ function searchFilter(value, property){
 
 
 
+setTimeout(function(){
+
 $('#numOfArticles').text(numOfArticles(initArray()));
 console.log('number of articles ' + numOfArticles(initArray()));
 
@@ -93,6 +94,7 @@ console.log(arrayOfWords(initArray()).length);
 
 $('#avgWordL').text(avgWordFunc(wordNum(arrayOfWords(initArray())), arrayOfWords(initArray()).length))
 console.log(avgWordFunc(wordNum(arrayOfWords(initArray())), arrayOfWords(initArray()).length))
-avgAuth();
+avgAuth()
+}, 2000);
 
   });

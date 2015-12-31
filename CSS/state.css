@@ -2,3 +2,11 @@
   #top {
     width:20em;
   }
+
+  #togMen {
+    visibility: visible;
+  }
+
+#menuBar {
+  visibility: hidden;
+}

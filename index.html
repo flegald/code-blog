@@ -4,25 +4,20 @@
 <meta charset="utf-8">
 <head>
   <title>David's Blog</title>
-  <script type="text/javascript" src="js/blog.js"></script>
 
-  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type ="text/javascript  " src="js/marked.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="CSS/normalize.css"/>
-  <link rel="stylesheet" type="text.css" href="CSS/skeleton.css"/>
-  <link rel="stylesheet" type="text/css" href="CSS/base.css"/>
-  <link rel="stylesheet" type="text/css" href="CSS/module.css"/>
-  <link rel="stylesheet" type="text/css" href="CSS/layout.css"/>
-  <link rel="stylesheet" type="text/css" href="CSS/state.css"/>
-
+  <link rel="stylesheet" href="/CSS/normalize.css"/>
+  <link rel="stylesheet" type="text.css" href="/CSS/skeleton.css"/>
+  <link rel="stylesheet" type="text/css" href="/CSS/base.css"/>
+  <link rel="stylesheet" type="text/css" href="/CSS/module.css"/>
+  <link rel="stylesheet" type="text/css" href="/CSS/layout.css"/>
+  <link rel="stylesheet" type="text/css" href="/CSS/state.css"/>
+  <base href = "/">
 </head>
 
 <body>
 
     <header id="top">
-      <h1>Davids Code Blog</h1>
+      <h1>David's Code Blog</h1>
       <section class="togMen" id="togMen">
       <div>
         <span></span>
@@ -32,48 +27,147 @@
     </section>
 
     <section class='phoneMenu'>
-      <ul>
-        <li><a class="navLink" href="https://github.com/flegald">Articles</a></li>
+      <ul id="phoneList">
+        <li><a class="navLink" href="https://github.com/flegald">Home</a></li>
         <li><a class="navLink" href="about.html" target="_blank">About</a></li>
         <li><a class="navLink" href="https://github.com/flegald">Twitter</a></li>
         <li><a class="navLink" href="https://github.com/flegald">GitHub</a></li>
       </ul>
     </section>
+
+    <div id="menuBar">
+      <div id="homeButt" class="deskButt">Home</div>
+      <div id="aboutButt" class="deskButt">About</div>
+      <div id="git" class=deskButt>Git Hub</div>
+    </div>
+
+    <div id="menuSecondRow">
+      <div id="stats" class="deskButt">Stats</div>
+      <div id="edit" class="deskButt">New Entry</div>
+  </div>
+
+
+
 </header>
 <div class="breaker"></div>
 
 </br>
 
-<selection id="form">
+<div id="mainPage">
+  <div id = "form">
+    <form id="formA">
+      <select id="auth" name="Filter By Author">
+        <option>FILTER BY AUTHOR</option>
+        <option value="All">All</option>
+      </select>
+    </form>
 
-  <formid="formA">
+    <form id="formC">
 
-    <select id="auth" name="Filter By Author">
-      <option>FILTER BY AUTHOR</option>
-      <option value="All">All</option>
-    </select>
-  </form>
+      <select id="cate">
+        <option> FILTER BY CATEGORY</option>
+        <option value="All">All</option>
+      </select>
+    </form>
 
-  <form id="formC">
-
-    <select id="cate">
-      <option> FILTER BY CATEGORY</option>
-      <option value="All">All</option>
-    </select>
-    <button id="Enter">enter</button>
-
-  </form>
-
-</selection>
-
-
-
-  <section class="articleBox">
-
-
+  </div>
+    <section class="articleBox">
+    </section>
+</div>
+<!--ABOUT ME  -->
+  <section id="aboutMe">
+    <h1>About Me</h1>
+    <ul>
+      <li>Name: David Flegal</li>
+      <li>Age: 26</li>
+      <li>Lives In: Seattle</li>
+      <li>Favorit Movie: Alien</li>
+    </ul>
   </section>
-  <script type="text/javascript" src="js/append.js"></script>
-  <script type="text/javascript" src="js/menu.js"></script>
+<!--ADMIN STATS  -->
+  <section id="adminStats">
+    <h1>Administrative Info</h1>
+  </header>
+  <div id="totArt" class="stat">
+  <h2>Total Number of Articles:</h2>
+    <p id="numOfArticles"></p>
+  </div>
+
+  <div id="totAuth" class="stat">
+  <h2>Total Number of Authors:</h2>
+    <p id="numOfAuths"></p>
+  </div>
+
+  <div id="totWords" class="stat">
+    <h2>Total Number of Words:</h2>
+    <p id="numOfWords"></p>
+  </div>
+
+  <div id="avgWordLength" class="stat">
+    <h2>Average Word Length:</h2>
+    <p id="avgWordL"></p>
+  </div>
+
+    <h2>Average Word Per Author:</h2>
+    <p id="avgAuth"></p>
+  </section>
+<!--EDIT PAGE  -->
+  <section id="newEntry">
+    <h1>New Blog Entry</h1>
+
+    <div>
+      <h3>Title: </h3>
+      <input type="text" id="title"/>
+    </div>
+
+    <div>
+      <h3>Category: </h3>
+      <input type="text" id="category" />
+    </div>
+
+    <div>
+      <h3>Author: </h3>
+      <input type="text" id="author" />
+    </div>
+
+    <div>
+      <h3>Author URL: </h3>
+      <input type="text" id="authUrl" />
+    </div>
+
+    <div>
+      <h3>Body: </h3>
+      <textarea id="body">
+      </textarea>
+    </div>
+
+    <div>
+      <h4>Preview</h4>
+    </div>
+    <div id="prevAll">
+    </div>
+
+    <div>
+      <h4>JSON String</h4>
+      <div id="prevJson">
+      </div>
+    </div>
+    <button id="submit">Submit</button>
+  </section>
+
+
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type ="text/javascript  " src="/js/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <script type = "text/javascript" src = "/js/page.js"></script>
+  <script src ="/js/html5sql.js"></script>
+  <script src = "/js/webDB.js"></script>
+  <script type="text/javascript" src="/js/append.js"></script>
+  <script type="text/javascript" src="/js/menu.js"></script>
+  <script type="text/javascript" src="/js/admin_stats.js"></script>
+
+
 
 </body>
 </html>
