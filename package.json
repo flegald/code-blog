@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Code Fellows assignment",
   "main": "web.js",
+  "engines": {
+    "node": "4.1.1",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
