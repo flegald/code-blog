@@ -5,16 +5,11 @@ var bigArray = [];
 var authForm = [];
 var eTag;
 
-page.base('/');
 
 
 $(function(){
 
-  page('/', index);
-  page('about', about);
-  page('stats', stats);
-  page('newentry', editPage);
-  page();
+  
 
 
 function index(){
