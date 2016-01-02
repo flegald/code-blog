@@ -1,7 +1,7 @@
 {
-  "name": "code-blog",
+  "name": "Assignment",
   "version": "1.0.0",
-  "description": "Code Fellows Assignment",
+  "description": "Class Assignment",
   "main": "server.js",
   "dependencies": {
     "express": "^4.13.3",
